@@ -3,3 +3,15 @@ services:
     image: apache/kafka:3.9.0
     ports:
       - "9092:9092"
+    volumes:
+      - kafka-data:/var/lib/kafka/data
+      - kafka-secrets:/etc/kafka/secrets
+      - kafka-config:/mnt/shared/config
+
+volumes:
+  kafka-data:
+    name: kafka-disk
+  kafka-secrets:
+    name: kafka-secrets-disk
+  kafka-config:
+    name: kafka-config-disk
